@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/jennifer0101/bamazon/issues"
   },
-  "homepage": "https://github.com/jennifer0101/bamazon#readme"
+  "homepage": "https://github.com/jennifer0101/bamazon#readme",
+  "dependencies": {
+    "inquirer": "^7.0.0"
+  }
 }
