@@ -47,15 +47,14 @@ function selectProduct(results) {
         })
         
       .then(function (answer) {
-        //var chosenId = answer.userId;
         var id = parseInt(answer.userId);
         var product = checkInventory(id, results);
         if (product){
           console.table(product);
           quantityPrompt(product);
         } else {
-          //console.log(product);
-          console.log("product does not exist")
+          console.log("The product you chose does not exist.")
+          displayTable();
         }
       } 
   )}
@@ -78,12 +77,10 @@ function quantityPrompt(product) {
         message: "How many units of this item do you want to purchase?"
       })
     .then(function (answer) {
-      //console.log(answer.stock_quantity);
-      //console.log(answer);
       var quantity = parseInt (answer.stock_quantity);
       if (quantity > product.stock_quantity){
-        console.log("insufient quantity");
-        displayTable();
+        console.log("You have chosen an insufficient quantity.");
+        quantityPrompt();
       } else {
         finalizePurchase();
       }
