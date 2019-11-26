@@ -80,10 +80,26 @@ function quantityPrompt(product) {
       var quantity = parseInt (answer.stock_quantity);
       if (quantity > product.stock_quantity){
         console.log("You have chosen an insufficient quantity.");
-        quantityPrompt();
+        displayTable();
+        // quantityPrompt();
       } else {
-        finalizePurchase();
+        finalizePurchase(product, quantity);
       }
     })
   }
+  //Update database to deduct units they wish to purchase
+  function finalizePurchase(product, quantity) {
+    connection.query(
+      "UPDATE products SET stock_quantity = stock_quantity -? WHERE id = ?;",
+      [quantity, product.id],
+      function(err){
+        console.log("Your purchase was successful.")
+        displayTable();
+      }
+      )
+  
+    
+  }
+
+  //Show customer total cost of purchase
          
