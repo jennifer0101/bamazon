@@ -8,7 +8,9 @@ Bamazon storefront using MySQL and Node.js
 
 Bamazon storefront allows the user to select an item to purchase, select the quantity of that item, and then reduces the stock quantity value of that item by the number the customer input. 
 
-![](bamazon.gif)
+![Purchasing a product.](bamazon1.gif)
+
+![Purchasing error and product quantity error.](bamazon2.gif)
 
 ## Built With
 
